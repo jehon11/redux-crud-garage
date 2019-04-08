@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { fetchCars } from '../actions/index';
 
 class CarsIndex extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchCars(this.props.garage);
   }
 
@@ -29,7 +29,7 @@ class CarsIndex extends Component {
       <div>
         <div className="first-row">
           <h3>Blog</h3>
-          <Link className="btn btn-primary btn-cta" to="/posts/new">
+          <Link className="btn btn-primary btn-cta" to="/cars/new">
             Add a car
           </Link>
         </div>

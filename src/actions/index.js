@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 // TODO: add and export your own actions
-const FETCH_CARS = "FETCH_CARS";
-const ADD_CAR = "ADD_CAR";
+export const FETCH_CARS = "FETCH_CARS";
+export const ADD_CAR = "ADD_CAR";
 
 
 export function fetchCars(garage) {
@@ -13,16 +13,16 @@ export function fetchCars(garage) {
   };
 }
 
-export function addCar(brand, model, owner, plate, garage) {
-  const body = { brand, model, owner, plate };
+export function addCar(garage, car, callback) {
   const promise = fetch(`https://wagon-garage-api.herokuapp.com/${garage}/cars`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(body)
-  }).then(response => response.json());
+    body: JSON.stringify(car)
+  }).then(response => response.json())
+    .then(() => callback());
 
   return {
     type: ADD_CAR,
