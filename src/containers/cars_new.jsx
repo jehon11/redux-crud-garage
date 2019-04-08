@@ -14,7 +14,7 @@ class CarsNew extends Component {
 
   render() {
     return (
-      <div key="add" className="form-container" style={{ backgroundImage: "url('/assets/images/form.jpg')"}}>
+      <div key="add" className="form-container" style={{ backgroundImage: "url('/assets/images/form.jpg')" }}>
         <div className="overlay"></div>
         <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
           <div className="form-group">
